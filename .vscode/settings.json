@@ -85,6 +85,12 @@
 		"semaphore": "cpp",
 		"stack": "cpp",
 		"stop_token": "cpp",
-		"thread": "cpp"
+		"thread": "cpp",
+		"complex": "cpp",
+		"expected": "cpp",
+		"source_location": "cpp",
+		"forward_list": "cpp",
+		"list": "cpp",
+		"xhash": "cpp"
 	}
 }
