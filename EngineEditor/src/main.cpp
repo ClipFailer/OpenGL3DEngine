@@ -1,19 +1,12 @@
 #include <iostream>
 #include <memory>
 
-#include "Engine/Application.hpp"
+#include "EngineCore/Application.hpp"
 
-class EngineApp : public Engine::Application {
+class App : public Engine::Application {
 public:
-	EngineApp(
-		std::string  	title,
-		unsigned int 	windowWidth,
-		unsigned int 	windowHeight
-	) : Application(title, windowWidth, windowHeight) {}
-
 	virtual void update() override {
-		// std::cout << "Update frame: " << m_frame << std::endl;
-		// ++m_frame;
+		
 	}
 
 private:
@@ -21,11 +14,9 @@ private:
 };
 
 int main() {
-	auto pEngineApp = std::make_unique<EngineApp>("Engine", 800, 600);
+	auto app = std::make_unique<App>();
 
-	int returnCode = pEngineApp->run();
+	int returnCode = app->run(600, 400, "Test");
 
-	std::cin.get();
-
-	return 0;
+	return returnCode;
 }
