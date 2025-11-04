@@ -1,0 +1,32 @@
+# Название проекта
+PROJECT_NAME           = "Engine"
+
+PROJECT_BRIEF = "3D Engine на C++ с использованием OpenGL и ImGui. Документация содержит описание всех классов, функций и событий."
+
+# Исходники
+INPUT                  = EngineCore/includes EngineCore/src
+
+# Расширения файлов для сканирования
+FILE_PATTERNS          = *.cpp *.hpp *.h
+
+# Рекурсивный поиск в подпапках
+RECURSIVE              = YES
+
+# Генерация HTML
+GENERATE_HTML          = YES
+HTML_OUTPUT            = docs/html
+
+# Генерация LaTeX (PDF) не обязательно
+GENERATE_LATEX         = NO
+
+# Поддержка Markdown
+MARKDOWN_SUPPORT       = YES
+
+# Если есть комментарии на русском
+OUTPUT_LANGUAGE        = Russian
+
+# Берём все классы, методы, даже без комментариев
+EXTRACT_ALL            = YES
+
+# Первая строка javadoc станет кратким описанием
+JAVADOC_AUTOBRIEF      = YES

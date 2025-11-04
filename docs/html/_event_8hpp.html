@@ -1,0 +1,158 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ru">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.14.0"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Engine: Файл EngineCore/includes/EngineCore/Event.hpp</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<script type="text/javascript" src="clipboard.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript" src="cookie.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">Engine
+   </div>
+   <div id="projectbrief">3D Engine на C++ с использованием OpenGL и ImGui. Документация содержит описание всех классов, функций и событий.</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Создано системой Doxygen 1.14.0 -->
+<script type="text/javascript">
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+</script>
+<script type="text/javascript">
+$(function() { codefold.init(); });
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+$(function() {
+  initMenu('',true,false,'search.php','Поиск',true);
+  $(function() { init_search(); });
+});
+</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+$(function(){initNavTree('_event_8hpp.html','',''); });
+</script>
+<div id="container">
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Загрузка...</div>
+<div class="SRStatus" id="Searching">Поиск...</div>
+<div class="SRStatus" id="NoMatches">Не найдено</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="headertitle"><div class="title">Файл Event.hpp</div></div>
+</div><!--header-->
+<div class="contents">
+<div class="textblock"><code>#include &lt;cstdint&gt;</code><br />
+<code>#include &lt;functional&gt;</code><br />
+<code>#include &lt;array&gt;</code><br />
+</div>
+<p><a href="_event_8hpp_source.html">См. исходные тексты.</a></p>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-nested-classes" class="groupheader"><a id="nested-classes" name="nested-classes"></a>
+Классы</h2></td></tr>
+<tr class="memitem:Engine_3A_3AEvent" id="r_Engine_3A_3AEvent"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_engine_1_1_event.html">Engine::Event</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Базовая структура события  <a href="struct_engine_1_1_event.html#details">Подробнее...</a><br /></td></tr>
+<tr class="memitem:Engine_3A_3AEventDispatcher" id="r_Engine_3A_3AEventDispatcher"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_engine_1_1_event_dispatcher.html">Engine::EventDispatcher</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Класс для управления обработкой событий приложения.  <a href="class_engine_1_1_event_dispatcher.html#details">Подробнее...</a><br /></td></tr>
+<tr class="memitem:Engine_3A_3AEventMouseMove" id="r_Engine_3A_3AEventMouseMove"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_engine_1_1_event_mouse_move.html">Engine::EventMouseMove</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Структура, описывающая событие нажатия кнопки мыши  <a href="struct_engine_1_1_event_mouse_move.html#details">Подробнее...</a><br /></td></tr>
+<tr class="memitem:Engine_3A_3AEventWindowResize" id="r_Engine_3A_3AEventWindowResize"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_engine_1_1_event_window_resize.html">Engine::EventWindowResize</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Структура, описывающая событие изменения размера окна  <a href="struct_engine_1_1_event_window_resize.html#details">Подробнее...</a><br /></td></tr>
+<tr class="memitem:Engine_3A_3AEventCloseWindow" id="r_Engine_3A_3AEventCloseWindow"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_engine_1_1_event_close_window.html">Engine::EventCloseWindow</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Структура, описывающая событие закрытия окна  <a href="struct_engine_1_1_event_close_window.html#details">Подробнее...</a><br /></td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-namespaces" class="groupheader"><a id="namespaces" name="namespaces"></a>
+Пространства имен</h2></td></tr>
+<tr class="memitem:Engine" id="r_Engine"><td class="memItemLeft" align="right" valign="top">namespace &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespace_engine.html">Engine</a></td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-typedef-members" class="groupheader"><a id="typedef-members" name="typedef-members"></a>
+Определения типов</h2></td></tr>
+<tr class="memitem:a27dd011f637c0cc4e3ed2acdc6d05fe3" id="r_a27dd011f637c0cc4e3ed2acdc6d05fe3"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespace_engine.html#a27dd011f637c0cc4e3ed2acdc6d05fe3">Engine::EventCallback</a> = std::function&lt;void(<a class="el" href="struct_engine_1_1_event.html">Event</a>&amp;)&gt;</td></tr>
+<tr class="memitem:a6ed0eca47b331700a6efbce482e063ee" id="r_a6ed0eca47b331700a6efbce482e063ee"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespace_engine.html#a6ed0eca47b331700a6efbce482e063ee">Engine::EventCallbacksArray</a></td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-enum-members" class="groupheader"><a id="enum-members" name="enum-members"></a>
+Перечисления</h2></td></tr>
+<tr class="memitem:a8adc0e00a41c22459dc5bb00e9220b51" id="r_a8adc0e00a41c22459dc5bb00e9220b51"><td class="memItemLeft" align="right" valign="top">enum class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespace_engine.html#a8adc0e00a41c22459dc5bb00e9220b51">Engine::EventType</a> : uint8_t { <br />
+&#160;&#160;<a class="el" href="namespace_engine.html#a8adc0e00a41c22459dc5bb00e9220b51a9f8f27bff2915738c4fe1b970e12f89c">Engine::WindowResize</a> = 0
+, <a class="el" href="namespace_engine.html#a8adc0e00a41c22459dc5bb00e9220b51ac984201d37197ab297a14d19efee4b07">Engine::WindowClose</a>
+, <a class="el" href="namespace_engine.html#a8adc0e00a41c22459dc5bb00e9220b51a65a1aa093fcf3acd50b318f1942c02f5">Engine::KeyPress</a>
+, <a class="el" href="namespace_engine.html#a8adc0e00a41c22459dc5bb00e9220b51afd060c0c157323f1e43e0704d4f3ffc8">Engine::MouseMove</a>
+, <br />
+&#160;&#160;<a class="el" href="namespace_engine.html#a8adc0e00a41c22459dc5bb00e9220b51a49dabe49d62a3521f7c10400138c38d5">Engine::MouseButton</a>
+<br />
+ }</td></tr>
+<tr class="memdesc:a8adc0e00a41c22459dc5bb00e9220b51"><td class="mdescLeft">&#160;</td><td class="mdescRight">Перечисление, описывающее тип события <span class="tt">Event</span>  <a href="namespace_engine.html#a8adc0e00a41c22459dc5bb00e9220b51">Подробнее...</a><br /></td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-var-members" class="groupheader"><a id="var-members" name="var-members"></a>
+Переменные</h2></td></tr>
+<tr class="memitem:ad8041995378f6b0f87a0b62a8fa277df" id="r_ad8041995378f6b0f87a0b62a8fa277df"><td class="memItemLeft" align="right" valign="top">constexpr uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespace_engine.html#ad8041995378f6b0f87a0b62a8fa277df">Engine::EventTypeCount</a> = 5</td></tr>
+</table>
+</div><!-- contents -->
+</div><!-- doc-content -->
+<div id="page-nav" class="page-nav-panel">
+<div id="page-nav-resize-handle"></div>
+<div id="page-nav-tree">
+<div id="page-nav-contents">
+</div><!-- page-nav-contents -->
+</div><!-- page-nav-tree -->
+</div><!-- page-nav -->
+</div><!-- container -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a href="dir_5eb15d33cea2c0f983bce569376c8449.html">EngineCore</a></li><li class="navelem"><a href="dir_6606ff5e8f0c93b1d72a562d9149d645.html">includes</a></li><li class="navelem"><a href="dir_a8c25bdc931646f2a360f303453ab168.html">EngineCore</a></li><li class="navelem"><a href="_event_8hpp.html">Event.hpp</a></li>
+    <li class="footer">Создано системой <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.14.0 </li>
+  </ul>
+</div>
+</body>
+</html>

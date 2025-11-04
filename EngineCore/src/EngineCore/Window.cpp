@@ -3,6 +3,10 @@
 #include <glad/glad.h>
 #include <GLFW/glfw3.h>
 
+#include <imgui/imgui.h>
+#include <imgui/backends/imgui_impl_opengl3.h>
+#include <imgui/backends/imgui_impl_glfw.h>
+
 #include "EngineCore/Log.hpp"
 
 namespace Engine {
@@ -21,15 +25,44 @@ namespace Engine {
 		})
 	{
 		int8_t resultCode = init();
+
+		// ImGui инициализация.
+		IMGUI_CHECKVERSION();
+		ImGui::CreateContext();
+		ImGui_ImplOpenGL3_Init();
+		ImGui_ImplGlfw_InitForOpenGL(m_id, true);
+
+		LOG_INFO("ImGui was successfully initialized");
 	}
 
 	Window::~Window() {
 		shutdown();
 	}
 
+	
 	void Window::update() {
 		glClearColor(0.5f, 0.5f, 0.5f, 1.0f);
         glClear(GL_COLOR_BUFFER_BIT);
+
+		// Получаем структуру, хранящую информацию для работы ImGui
+		ImGuiIO& io = ImGui::GetIO();
+		io.DisplaySize.x = static_cast<float>(getWidth());
+		io.DisplaySize.y = static_cast<float>(getHeight());
+
+		// Подготовка нового кадра OpenGL через ImGui
+		ImGui_ImplOpenGL3_NewFrame();
+		// Обработка событий ImGui
+		ImGui_ImplGlfw_NewFrame();
+		// Начало кадра
+		ImGui::NewFrame();
+
+		// Демо окна ImGui
+		ImGui::ShowDemoWindow();
+
+		// Отрисовка кадра 
+		ImGui::Render();
+		ImGui_ImplOpenGL3_RenderDrawData(ImGui::GetDrawData());
+
 		glfwSwapBuffers(m_id);
 		glfwPollEvents();
 	}
