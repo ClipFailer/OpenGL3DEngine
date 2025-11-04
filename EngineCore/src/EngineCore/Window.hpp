@@ -97,8 +97,9 @@ namespace Engine {
 		int8_t init();
 		int8_t shutdown();
 
-		GLFWwindow*		m_id 	= nullptr;
+		GLFWwindow*		m_id 			= nullptr;
 		WindowData		m_data;
+		float 			m_bgColor[4]	= {0.f, 0.f, 0.f, 1.f};
 	};
 
 } // namespace Engine 

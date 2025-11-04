@@ -41,11 +41,17 @@ namespace Engine {
 
 	
 	void Window::update() {
-		glClearColor(0.5f, 0.5f, 0.5f, 1.0f);
+		glClearColor(m_bgColor[0], m_bgColor[1], m_bgColor[2], m_bgColor[3]);
         glClear(GL_COLOR_BUFFER_BIT);
 
 		// Получаем структуру, хранящую информацию для работы ImGui
 		ImGuiIO& io = ImGui::GetIO();
+		io.Fonts->AddFontFromFileTTF(
+			"C:\\Windows\\Fonts\\arial.ttf", 
+			16.0f, 
+			nullptr, 
+			io.Fonts->GetGlyphRangesCyrillic()
+		);
 		io.DisplaySize.x = static_cast<float>(getWidth());
 		io.DisplaySize.y = static_cast<float>(getHeight());
 
@@ -58,6 +64,10 @@ namespace Engine {
 
 		// Демо окна ImGui
 		ImGui::ShowDemoWindow();
+
+		ImGui::Begin("Выбор цвета фона");
+		ImGui::ColorEdit4("Цвет фона", m_bgColor);
+		ImGui::End();
 
 		// Отрисовка кадра 
 		ImGui::Render();
