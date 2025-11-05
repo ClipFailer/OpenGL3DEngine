@@ -1,6 +1,8 @@
 var searchData=
 [
-  ['getheight_0',['getHeight',['../class_engine_1_1_window.html#aa785384327ea158b29a418d4fca21334',1,'Engine::Window']]],
-  ['gettype_1',['getType',['../struct_engine_1_1_event.html#ac91f3d0862f2831e619cbcad00eacaaa',1,'Engine::Event::getType()'],['../struct_engine_1_1_event_mouse_move.html#a68b079423265e2fe6584c5ac4f328033',1,'Engine::EventMouseMove::getType()'],['../struct_engine_1_1_event_window_resize.html#a527a0833fc280e7b802b4b143e84faf4',1,'Engine::EventWindowResize::getType()'],['../struct_engine_1_1_event_close_window.html#ae480dd6d4ecc3fe14c55912e6e9430a7',1,'Engine::EventCloseWindow::getType()']]],
-  ['getwidth_2',['getWidth',['../class_engine_1_1_window.html#a6f3910854e9451475dd428ccfbfbc9a9',1,'Engine::Window']]]
+  ['event_0',['Event',['../struct_engine_1_1_event.html',1,'Engine']]],
+  ['eventclosewindow_1',['EventCloseWindow',['../struct_engine_1_1_event_close_window.html',1,'Engine']]],
+  ['eventdispatcher_2',['EventDispatcher',['../class_engine_1_1_event_dispatcher.html',1,'Engine']]],
+  ['eventmousemove_3',['EventMouseMove',['../struct_engine_1_1_event_mouse_move.html',1,'Engine::EventMouseMove'],['../struct_engine_1_1_event_mouse_move.html#a5cab974512175a72605da9a3d227574d',1,'Engine::EventMouseMove::EventMouseMove()']]],
+  ['eventwindowresize_4',['EventWindowResize',['../struct_engine_1_1_event_window_resize.html',1,'Engine::EventWindowResize'],['../struct_engine_1_1_event_window_resize.html#a6fff598ccb37af6ed6f45cf8a5ce8138',1,'Engine::EventWindowResize::EventWindowResize()']]]
 ];

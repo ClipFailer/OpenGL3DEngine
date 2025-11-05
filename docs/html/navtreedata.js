@@ -25,38 +25,24 @@
 var NAVTREE =
 [
   [ "Engine", "index.html", [
-    [ "Пространства имен", "namespaces.html", [
-      [ "Пространства имен", "namespaces.html", "namespaces_dup" ],
-      [ "Члены пространств имен", "namespacemembers.html", [
-        [ "Указатель", "namespacemembers.html", null ],
-        [ "Переменные", "namespacemembers_vars.html", null ],
-        [ "Определения типов", "namespacemembers_type.html", null ],
-        [ "Перечисления", "namespacemembers_enum.html", null ]
-      ] ]
-    ] ],
     [ "Классы", "annotated.html", [
       [ "Классы", "annotated.html", "annotated_dup" ],
       [ "Алфавитный указатель классов", "classes.html", null ],
       [ "Иерархия классов", "hierarchy.html", "hierarchy" ],
       [ "Члены классов", "functions.html", [
         [ "Указатель", "functions.html", null ],
-        [ "Функции", "functions_func.html", null ],
-        [ "Переменные", "functions_vars.html", null ]
+        [ "Функции", "functions_func.html", null ]
       ] ]
     ] ],
     [ "Файлы", "files.html", [
-      [ "Файлы", "files.html", "files_dup" ],
-      [ "Список членов всех файлов", "globals.html", [
-        [ "Указатель", "globals.html", null ],
-        [ "Макросы", "globals_defs.html", null ]
-      ] ]
+      [ "Файлы", "files.html", "files_dup" ]
     ] ]
   ] ]
 ];
 
 var NAVTREEINDEX =
 [
-"_application_8cpp.html"
+"_application_8hpp_source.html"
 ];
 
 var SYNCONMSG = 'нажмите на выключить для синхронизации панелей';

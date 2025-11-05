@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['window_2ecpp_0',['Window.cpp',['../_window_8cpp.html',1,'']]],
-  ['window_2ehpp_1',['Window.hpp',['../_window_8hpp.html',1,'']]]
+  ['shaderprogram_2ecpp_0',['ShaderProgram.cpp',['../_shader_program_8cpp.html',1,'']]],
+  ['shaderprogram_2ehpp_1',['ShaderProgram.hpp',['../_shader_program_8hpp.html',1,'']]]
 ];

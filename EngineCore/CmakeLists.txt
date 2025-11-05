@@ -13,6 +13,9 @@ set(ENGINE_PRIVATE_SOURCES
 	src/EngineCore/Application.cpp
 	src/EngineCore/Window.cpp
 	src/EngineCore/Window.hpp
+
+	src/EngineCore/Render/OpenGL/ShaderProgram.hpp
+	src/EngineCore/Render/OpenGL/ShaderProgram.cpp
 )
 
 add_library(${ENGINE_PROJECT_NAME} STATIC 

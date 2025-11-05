@@ -107,6 +107,7 @@ $(function(){initNavTree('namespace_engine.html','',''); });
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Структура, описывающая событие нажатия кнопки мыши  <a href="struct_engine_1_1_event_mouse_move.html#details">Подробнее...</a><br /></td></tr>
 <tr class="memitem:EventWindowResize" id="r_EventWindowResize"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_engine_1_1_event_window_resize.html">EventWindowResize</a></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Структура, описывающая событие изменения размера окна  <a href="struct_engine_1_1_event_window_resize.html#details">Подробнее...</a><br /></td></tr>
+<tr class="memitem:ShaderProgram" id="r_ShaderProgram"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_engine_1_1_shader_program.html">ShaderProgram</a></td></tr>
 <tr class="memitem:Window" id="r_Window"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_engine_1_1_window.html">Window</a></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Класс, представляющий окно приложения.  <a href="class_engine_1_1_window.html#details">Подробнее...</a><br /></td></tr>
 <tr class="memitem:WindowData" id="r_WindowData"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_engine_1_1_window_data.html">WindowData</a></td></tr>
@@ -133,6 +134,12 @@ $(function(){initNavTree('namespace_engine.html','',''); });
 <tr class="heading"><td colspan="2"><h2 id="header-var-members" class="groupheader"><a id="var-members" name="var-members"></a>
 Переменные</h2></td></tr>
 <tr class="memitem:ad8041995378f6b0f87a0b62a8fa277df" id="r_ad8041995378f6b0f87a0b62a8fa277df"><td class="memItemLeft" align="right" valign="top">constexpr uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ad8041995378f6b0f87a0b62a8fa277df">EventTypeCount</a> = 5</td></tr>
+<tr class="memitem:afce4e783b6523293b8d914d40552962f" id="r_afce4e783b6523293b8d914d40552962f"><td class="memItemLeft" align="right" valign="top">GLfloat&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#afce4e783b6523293b8d914d40552962f">verteces</a> []</td></tr>
+<tr class="memitem:a87eedd6a611dc94e3d94acbaf669a16e" id="r_a87eedd6a611dc94e3d94acbaf669a16e"><td class="memItemLeft" align="right" valign="top">GLfloat&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a87eedd6a611dc94e3d94acbaf669a16e">colors</a> []</td></tr>
+<tr class="memitem:a54865f7d2073f85f3606e20ecf16cb2e" id="r_a54865f7d2073f85f3606e20ecf16cb2e"><td class="memItemLeft" align="right" valign="top">const char *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a54865f7d2073f85f3606e20ecf16cb2e">vertexShader</a></td></tr>
+<tr class="memitem:a9d7af33bcfc601f9049f9edf31bc7ca1" id="r_a9d7af33bcfc601f9049f9edf31bc7ca1"><td class="memItemLeft" align="right" valign="top">const char *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a9d7af33bcfc601f9049f9edf31bc7ca1">fragmentShader</a></td></tr>
+<tr class="memitem:a61463023cb8c376fa653dc4c79288b25" id="r_a61463023cb8c376fa653dc4c79288b25"><td class="memItemLeft" align="right" valign="top">GLuint&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a61463023cb8c376fa653dc4c79288b25">shaderProgram</a> = 0</td></tr>
+<tr class="memitem:abb7524210d94daf8079f4bc6d1a1b84d" id="r_abb7524210d94daf8079f4bc6d1a1b84d"><td class="memItemLeft" align="right" valign="top">GLuint&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#abb7524210d94daf8079f4bc6d1a1b84d">vao</a> = 0</td></tr>
 </table>
 <a name="doc-typedef-members" id="doc-typedef-members"></a><h2 id="header-doc-typedef-members" class="groupheader">Типы</h2>
 <a id="a27dd011f637c0cc4e3ed2acdc6d05fe3" name="a27dd011f637c0cc4e3ed2acdc6d05fe3"></a>
@@ -209,6 +216,25 @@ $(function(){initNavTree('namespace_engine.html','',''); });
 </div>
 </div>
 <a name="doc-var-members" id="doc-var-members"></a><h2 id="header-doc-var-members" class="groupheader">Переменные</h2>
+<a id="a87eedd6a611dc94e3d94acbaf669a16e" name="a87eedd6a611dc94e3d94acbaf669a16e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a87eedd6a611dc94e3d94acbaf669a16e">&#9670;&#160;</a></span>colors</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">GLfloat Engine::colors[]</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<b>Инициализатор</b><div class="fragment"><div class="line">= {</div>
+<div class="line">        1.0f, 0.0f, 0.0f,</div>
+<div class="line">        0.0f, 1.0f, 0.0f,</div>
+<div class="line">        0.0f, 0.0f, 1.0f,</div>
+<div class="line">    }</div>
+</div><!-- fragment -->
+</div>
+</div>
 <a id="ad8041995378f6b0f87a0b62a8fa277df" name="ad8041995378f6b0f87a0b62a8fa277df"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ad8041995378f6b0f87a0b62a8fa277df">&#9670;&#160;</a></span>EventTypeCount</h2>
 
@@ -229,6 +255,97 @@ $(function(){initNavTree('namespace_engine.html','',''); });
 </table>
 </div><div class="memdoc">
 
+</div>
+</div>
+<a id="a9d7af33bcfc601f9049f9edf31bc7ca1" name="a9d7af33bcfc601f9049f9edf31bc7ca1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9d7af33bcfc601f9049f9edf31bc7ca1">&#9670;&#160;</a></span>fragmentShader</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">const char* Engine::fragmentShader</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<b>Инициализатор</b><div class="fragment"><div class="line">= </div>
+<div class="line">    <span class="stringliteral">&quot;#version 460\n&quot;</span></div>
+<div class="line">    <span class="stringliteral">&quot;in vec3 color;\n&quot;</span></div>
+<div class="line">    <span class="stringliteral">&quot;out vec4 fragment_color;\n&quot;</span></div>
+<div class="line">    <span class="stringliteral">&quot;void main() {\n&quot;</span></div>
+<div class="line">    <span class="stringliteral">&quot;   fragment_color = vec4(color, 1.0f);\n&quot;</span></div>
+<div class="line">    <span class="stringliteral">&quot;}\n&quot;</span></div>
+</div><!-- fragment -->
+</div>
+</div>
+<a id="a61463023cb8c376fa653dc4c79288b25" name="a61463023cb8c376fa653dc4c79288b25"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a61463023cb8c376fa653dc4c79288b25">&#9670;&#160;</a></span>shaderProgram</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">GLuint Engine::shaderProgram = 0</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="abb7524210d94daf8079f4bc6d1a1b84d" name="abb7524210d94daf8079f4bc6d1a1b84d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abb7524210d94daf8079f4bc6d1a1b84d">&#9670;&#160;</a></span>vao</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">GLuint Engine::vao = 0</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="afce4e783b6523293b8d914d40552962f" name="afce4e783b6523293b8d914d40552962f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afce4e783b6523293b8d914d40552962f">&#9670;&#160;</a></span>verteces</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">GLfloat Engine::verteces[]</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<b>Инициализатор</b><div class="fragment"><div class="line">= {</div>
+<div class="line">        -0.5f, -0.5f, 0.0f,</div>
+<div class="line">        0.0f, 0.5f, 0.0f,</div>
+<div class="line">        0.5f, -0.5f, 0.0f,</div>
+<div class="line">    }</div>
+</div><!-- fragment -->
+</div>
+</div>
+<a id="a54865f7d2073f85f3606e20ecf16cb2e" name="a54865f7d2073f85f3606e20ecf16cb2e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a54865f7d2073f85f3606e20ecf16cb2e">&#9670;&#160;</a></span>vertexShader</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">const char* Engine::vertexShader</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<b>Инициализатор</b><div class="fragment"><div class="line">= </div>
+<div class="line">    <span class="stringliteral">&quot;#version 460\n&quot;</span></div>
+<div class="line">    <span class="stringliteral">&quot;layout(location = 0) in vec3 vertex_position;\n&quot;</span></div>
+<div class="line">    <span class="stringliteral">&quot;layout(location = 1) in vec3 vertex_color;\n&quot;</span></div>
+<div class="line">    <span class="stringliteral">&quot;out vec3 color;\n&quot;</span></div>
+<div class="line">    <span class="stringliteral">&quot;void main() {\n&quot;</span></div>
+<div class="line">    <span class="stringliteral">&quot;   color = vertex_color;\n&quot;</span></div>
+<div class="line">    <span class="stringliteral">&quot;   gl_Position = vec4(vertex_position, 1.0f);\n&quot;</span></div>
+<div class="line">    <span class="stringliteral">&quot;}\n&quot;</span></div>
+</div><!-- fragment -->
 </div>
 </div>
 </div><!-- contents -->

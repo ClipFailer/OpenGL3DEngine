@@ -3,14 +3,17 @@
 #include <cstdint>
 #include <string>
 #include <functional>
+#include <memory>
 
 #include "EngineCore/Event.hpp"
+#include "EngineCore/Render/OpenGL/ShaderProgram.hpp"
 
 struct GLFWwindow;
 
 namespace Engine {
 
 	using EventCallback = std::function<void(Event&)>;
+	using ShaderProgramPtr = std::unique_ptr<ShaderProgram>;
 
 	/**
 	 * @brief Структура, хранящая информацию об окне.
@@ -54,13 +57,13 @@ namespace Engine {
 		);
 		~Window();
 
-		Window(const Window&) 				= delete;		/**< Копирование запрещено */
-		Window& operator=(const Window&) 	= delete;		/**< Копирование запрещено */
-		Window(Window&&)					= delete;		/**< Move-конструктор запрещен */
-		Window& operator=(Window&&)			= delete;		/**< Move-копирование запрещено */
+		Window(const Window&) 				= delete;		
+		Window& operator=(const Window&) 	= delete;		
+		Window(Window&&)					= delete;		
+		Window& operator=(Window&&)			= delete;		
 
 		/**
-		 * @brief Обновляет окно и интерфейс ImGui.
+		 * @brief Обновляет окно.
 		 * 
 		 * Метод должен вызываться каждый кадр. Он выполняет необходимые настройки,
 		 * изменения, обработку событий окна.
@@ -69,13 +72,13 @@ namespace Engine {
 
 		/**
 		 * @brief Возвращает ширину окна в пикселях.
-		 * @return Ширина окна в пикселях (uint16_t)
+		 * @return Ширина окна в пикселях
 		 */
 		uint16_t getWidth() const noexcept { return m_data.width; }
 
 		/**
 		 * @brief Возвращает высоту окна в пикселях.
-		 * @return Высота окна в пикселях (uint16_t)
+		 * @return Высота окна в пикселях
 		 */
 		uint16_t getHeight() const noexcept { return m_data.height; }
 
@@ -97,9 +100,10 @@ namespace Engine {
 		int8_t init();
 		int8_t shutdown();
 
-		GLFWwindow*		m_id 			= nullptr;
-		WindowData		m_data;
-		float 			m_bgColor[4]	= {0.f, 0.f, 0.f, 1.f};
+		GLFWwindow*			m_id 				= nullptr;
+		WindowData			m_data;
+		float 				m_bgColor[4]		= {0.f, 0.f, 0.f, 1.f};
+		ShaderProgramPtr	m_pShaderProgram;
 	};
 
 } // namespace Engine 

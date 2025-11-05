@@ -13,6 +13,39 @@ namespace Engine {
 
 	static bool s_glfwInitialized = false;
 
+	GLfloat verteces[] = {
+		-0.5f, -0.5f, 0.0f,
+		0.0f, 0.5f, 0.0f,
+		0.5f, -0.5f, 0.0f,
+	};
+
+	GLfloat colors[] = {
+		1.0f, 0.0f, 0.0f,
+		0.0f, 1.0f, 0.0f,
+		0.0f, 0.0f, 1.0f,
+	};
+
+	const char* vertexShader = 
+	"#version 460\n"
+	"layout(location = 0) in vec3 vertex_position;\n"
+	"layout(location = 1) in vec3 vertex_color;\n"
+	"out vec3 color;\n"
+	"void main() {\n"
+	"	color = vertex_color;\n"
+	"	gl_Position = vec4(vertex_position, 1.0f);\n"
+	"}\n";
+
+	const char* fragmentShader = 
+	"#version 460\n"
+	"in vec3 color;\n"
+	"out vec4 fragment_color;\n"
+	"void main() {\n"
+	"	fragment_color = vec4(color, 1.0f);\n"
+	"}\n";
+
+	GLuint shaderProgram 	= 0;
+	GLuint vao 				= 0;
+
 	Window::Window(
 		const std::string& 	name, 
 		uint16_t 			width,
@@ -37,44 +70,6 @@ namespace Engine {
 
 	Window::~Window() {
 		shutdown();
-	}
-
-	
-	void Window::update() {
-		glClearColor(m_bgColor[0], m_bgColor[1], m_bgColor[2], m_bgColor[3]);
-        glClear(GL_COLOR_BUFFER_BIT);
-
-		// Получаем структуру, хранящую информацию для работы ImGui
-		ImGuiIO& io = ImGui::GetIO();
-		io.Fonts->AddFontFromFileTTF(
-			"C:\\Windows\\Fonts\\arial.ttf", 
-			16.0f, 
-			nullptr, 
-			io.Fonts->GetGlyphRangesCyrillic()
-		);
-		io.DisplaySize.x = static_cast<float>(getWidth());
-		io.DisplaySize.y = static_cast<float>(getHeight());
-
-		// Подготовка нового кадра OpenGL через ImGui
-		ImGui_ImplOpenGL3_NewFrame();
-		// Обработка событий ImGui
-		ImGui_ImplGlfw_NewFrame();
-		// Начало кадра
-		ImGui::NewFrame();
-
-		// Демо окна ImGui
-		ImGui::ShowDemoWindow();
-
-		ImGui::Begin("Выбор цвета фона");
-		ImGui::ColorEdit4("Цвет фона", m_bgColor);
-		ImGui::End();
-
-		// Отрисовка кадра 
-		ImGui::Render();
-		ImGui_ImplOpenGL3_RenderDrawData(ImGui::GetDrawData());
-
-		glfwSwapBuffers(m_id);
-		glfwPollEvents();
 	}
 
 	int8_t Window::init() {
@@ -107,7 +102,7 @@ namespace Engine {
             return -1;
         }
         LOG_INFO("GLAD was successfully loaded!");
-
+		
 		glfwSetWindowUserPointer(m_id, &m_data);
 
 		glfwSetWindowSizeCallback(
@@ -145,8 +140,76 @@ namespace Engine {
 			}
 		);
 
+		glfwSetFramebufferSizeCallback(
+			m_id,
+			[](GLFWwindow* pWindow, int width, int height) {
+				glViewport(0, 0, width, height);
+			}
+		);
+
+		m_pShaderProgram = std::make_unique<ShaderProgram>(vertexShader, fragmentShader);
+		if (!m_pShaderProgram->isCompiled()) {
+			return -1;
+		}
+
+		GLuint vertecesVBO = 0;
+		glGenBuffers(1, &vertecesVBO);
+		glBindBuffer(GL_ARRAY_BUFFER, vertecesVBO);
+		glBufferData(GL_ARRAY_BUFFER, sizeof(verteces), verteces, GL_STATIC_DRAW);
+
+		GLuint colorsVBO = 0;
+		glGenBuffers(1, &colorsVBO);
+		glBindBuffer(GL_ARRAY_BUFFER, colorsVBO);
+		glBufferData(GL_ARRAY_BUFFER, sizeof(colors), colors, GL_STATIC_DRAW);
+
+		glGenVertexArrays(1, &vao);
+		glBindVertexArray(vao);
+
+		glEnableVertexAttribArray(0);
+		glBindBuffer(GL_ARRAY_BUFFER, vertecesVBO);
+		glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 0, nullptr);
+
+		glEnableVertexAttribArray(1);
+		glBindBuffer(GL_ARRAY_BUFFER, colorsVBO);
+		glVertexAttribPointer(1, 3, GL_FLOAT, GL_FALSE, 0, nullptr);
+
         return 0;
 	}
+	
+	void Window::update() {
+		glClearColor(m_bgColor[0], m_bgColor[1], m_bgColor[2], m_bgColor[3]);
+        glClear(GL_COLOR_BUFFER_BIT);
+
+		m_pShaderProgram->bind();
+		glBindVertexArray(vao);
+		glDrawArrays(GL_TRIANGLES, 0, 3);
+
+		// Получаем структуру, хранящую информацию для работы ImGui
+		ImGuiIO& io = ImGui::GetIO();
+		
+		io.DisplaySize.x = static_cast<float>(getWidth());
+		io.DisplaySize.y = static_cast<float>(getHeight());
+
+		// Подготовка нового кадра OpenGL через ImGui
+		ImGui_ImplOpenGL3_NewFrame();
+		// Обработка событий ImGui
+		ImGui_ImplGlfw_NewFrame();
+		// Начало кадра
+		ImGui::NewFrame();
+
+		ImGui::Begin("Выбор цвета фона");
+		ImGui::ColorEdit4("Цвет фона", m_bgColor);
+		ImGui::End();
+
+		// Отрисовка кадра 
+		ImGui::Render();
+		ImGui_ImplOpenGL3_RenderDrawData(ImGui::GetDrawData());
+
+		glfwSwapBuffers(m_id);
+		glfwPollEvents();
+	}
+
+	
 
 	int8_t Window::shutdown() {
 		glfwDestroyWindow(m_id);
