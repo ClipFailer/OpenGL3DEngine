@@ -7,22 +7,33 @@
 #include <imgui/backends/imgui_impl_opengl3.h>
 #include <imgui/backends/imgui_impl_glfw.h>
 
+#include "EngineCore/Event.hpp"
 #include "EngineCore/Log.hpp"
+
+#include "EngineCore/Render/OpenGL/ShaderProgram.hpp"
+#include "EngineCore/Render/OpenGL/VertexBuffer.hpp"
+#include "EngineCore/Render/OpenGL/VertexArray.hpp"
 
 namespace Engine {
 
 	static bool s_glfwInitialized = false;
 
+	GLfloat points[] = {
+		-0.5f, -0.5f, 0.0f,		1.0f, 0.0f, 0.0f,
+		0.0f, 0.5f, 0.0f,		0.0f, 1.0f, 0.0f,
+		0.5f, -0.5f, 0.0f,		0.0f, 0.0f, 1.0f
+	};
+
 	GLfloat verteces[] = {
-		-0.5f, -0.5f, 0.0f,
-		0.0f, 0.5f, 0.0f,
-		0.5f, -0.5f, 0.0f,
+		-0.5f, -0.5f, 0.0f,	
+		0.0f, 0.5f, 0.0f,	
+		0.5f, -0.5f, 0.0f,	
 	};
 
 	GLfloat colors[] = {
 		1.0f, 0.0f, 0.0f,
 		0.0f, 1.0f, 0.0f,
-		0.0f, 0.0f, 1.0f,
+		0.0f, 0.0f, 1.0f	
 	};
 
 	const char* vertexShader = 
@@ -43,7 +54,6 @@ namespace Engine {
 	"	fragment_color = vec4(color, 1.0f);\n"
 	"}\n";
 
-	GLuint shaderProgram 	= 0;
 	GLuint vao 				= 0;
 
 	Window::Window(
@@ -102,7 +112,7 @@ namespace Engine {
             return -1;
         }
         LOG_INFO("GLAD was successfully loaded!");
-		
+		 
 		glfwSetWindowUserPointer(m_id, &m_data);
 
 		glfwSetWindowSizeCallback(
@@ -152,26 +162,19 @@ namespace Engine {
 			return -1;
 		}
 
-		GLuint vertecesVBO = 0;
-		glGenBuffers(1, &vertecesVBO);
-		glBindBuffer(GL_ARRAY_BUFFER, vertecesVBO);
-		glBufferData(GL_ARRAY_BUFFER, sizeof(verteces), verteces, GL_STATIC_DRAW);
+		BufferLayout bufferLayoutVerteces{
+			ShaderDataType::Float3,
+			ShaderDataType::Float3
+		};
 
-		GLuint colorsVBO = 0;
-		glGenBuffers(1, &colorsVBO);
-		glBindBuffer(GL_ARRAY_BUFFER, colorsVBO);
-		glBufferData(GL_ARRAY_BUFFER, sizeof(colors), colors, GL_STATIC_DRAW);
+		m_VBO = std::make_unique<VertexBuffer>(
+			points, 
+			sizeof(points), 
+			bufferLayoutVerteces
+		);
 
-		glGenVertexArrays(1, &vao);
-		glBindVertexArray(vao);
-
-		glEnableVertexAttribArray(0);
-		glBindBuffer(GL_ARRAY_BUFFER, vertecesVBO);
-		glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 0, nullptr);
-
-		glEnableVertexAttribArray(1);
-		glBindBuffer(GL_ARRAY_BUFFER, colorsVBO);
-		glVertexAttribPointer(1, 3, GL_FLOAT, GL_FALSE, 0, nullptr);
+		m_VAO = std::make_unique<VertexArray>();
+		m_VAO->addBuffer(*m_VBO);
 
         return 0;
 	}
@@ -181,7 +184,7 @@ namespace Engine {
         glClear(GL_COLOR_BUFFER_BIT);
 
 		m_pShaderProgram->bind();
-		glBindVertexArray(vao);
+		m_VAO->bind();
 		glDrawArrays(GL_TRIANGLES, 0, 3);
 
 		// Получаем структуру, хранящую информацию для работы ImGui

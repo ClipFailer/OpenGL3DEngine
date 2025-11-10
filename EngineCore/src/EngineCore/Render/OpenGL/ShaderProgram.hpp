@@ -1,9 +1,9 @@
 #pragma once
 
-
 namespace Engine {
 	
 	/**
+	 * @internal
 	 * @brief Класс, инкапслулирующий шейдерную программу.
 	 * 
 	 * Позволяет:
@@ -14,6 +14,7 @@ namespace Engine {
 	class ShaderProgram {
 	public:
 		/**
+		 * @internal
 		 * @brief Конструктор класса
 		 * 
 		 * Конструктор принемает две строки `const char*` с кодом
@@ -34,12 +35,15 @@ namespace Engine {
 		ShaderProgram(const ShaderProgram&) 			= delete;
 		ShaderProgram& operator=(const ShaderProgram&) 	= delete;
 
+		/// @internal
 		/// @brief Активирует шейдерную программу.
 		void bind() const noexcept;
-		
-		/// @brief Деактивирует шейдерную программу.
-		void unbind() const noexcept;
 
+		///@internal
+		/// @brief Деактивирует шейдерную программу.
+		static void unbind() noexcept;
+
+		/// @internal
 		/// @brief Возвращает состояние компиляции шейдеров.
 		/// @return Состояние компиляции (true - успешно).
 		bool isCompiled() const noexcept { return m_isCompiled; }

@@ -26,10 +26,10 @@ MARKDOWN_SUPPORT       = YES
 # Если есть комментарии на русском
 OUTPUT_LANGUAGE        = Russian
 
-# Берём все классы, методы, даже без комментариев
 EXTRACT_ALL            = NO
-EXTRACT_INTERNAL 	   = NO
-HIDE_UNDOC_MEMBERS     = YES    # скрывать все, что не задокументировано
+EXTRACT_INTERNAL 	   = YES
+INTERNAL_DOCS 		   = YES
+HIDE_UNDOC_MEMBERS     = YES 
 
 # Первая строка javadoc станет кратким описанием
 JAVADOC_AUTOBRIEF      = YES

@@ -104,11 +104,11 @@ namespace Engine {
 		glDeleteShader(fragmentShader);
 	}
 
-	void ShaderProgram::bind() const {
+	void ShaderProgram::bind() const noexcept {
 		glUseProgram(m_id);
 	}
 
-	void ShaderProgram::unbind() const {
+	void ShaderProgram::unbind() noexcept {
 		glUseProgram(0);
 	}
 

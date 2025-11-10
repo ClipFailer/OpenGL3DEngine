@@ -5,17 +5,24 @@
 #include <functional>
 #include <memory>
 
-#include "EngineCore/Event.hpp"
-#include "EngineCore/Render/OpenGL/ShaderProgram.hpp"
+
 
 struct GLFWwindow;
 
 namespace Engine {
 
-	using EventCallback = std::function<void(Event&)>;
-	using ShaderProgramPtr = std::unique_ptr<ShaderProgram>;
+	class Event;
+	class ShaderProgram;
+	class VertexBuffer;
+	class VertexArray;
+
+	using EventCallback 	= std::function<void(Event&)>;
+	using ShaderProgramPtr 	= std::unique_ptr<ShaderProgram>;
+	using VertexBufferPtr 	= std::unique_ptr<VertexBuffer>;
+	using VertexArrayPtr	= std::unique_ptr<VertexArray>;	
 
 	/**
+	 * @internal
 	 * @brief Структура, хранящая информацию об окне.
 	 * 
 	 * Структура хранит такие данные окна как ширина окна,
@@ -29,6 +36,7 @@ namespace Engine {
 	};
 
 	/**
+	 * @internal
 	 * @brief Класс, представляющий окно приложения.
 	 * 
 	 * Класс `Window` инкапсулирует создание окна через GLFW,
@@ -39,6 +47,7 @@ namespace Engine {
 	class Window {
 	public:
 		/**
+		 * @internal
 		 * @brief Конструктор класса `Window`.
 		 * 
 		 * Конструктор инициализирует новый объект `Window`
@@ -63,6 +72,7 @@ namespace Engine {
 		Window& operator=(Window&&)			= delete;		
 
 		/**
+		 * @internal
 		 * @brief Обновляет окно.
 		 * 
 		 * Метод должен вызываться каждый кадр. Он выполняет необходимые настройки,
@@ -71,18 +81,21 @@ namespace Engine {
 		void update();
 
 		/**
+		 * @internal
 		 * @brief Возвращает ширину окна в пикселях.
 		 * @return Ширина окна в пикселях
 		 */
 		uint16_t getWidth() const noexcept { return m_data.width; }
 
 		/**
+		 * @internal
 		 * @brief Возвращает высоту окна в пикселях.
 		 * @return Высота окна в пикселях
 		 */
 		uint16_t getHeight() const noexcept { return m_data.height; }
 
 		/**
+		 * @internal
 		 * @brief Устанавливает callback-функцию для обработки событий окна.
 		 * 
 		 * Переданная функция будет вызвана при возникновении событий,
@@ -104,6 +117,8 @@ namespace Engine {
 		WindowData			m_data;
 		float 				m_bgColor[4]		= {0.f, 0.f, 0.f, 1.f};
 		ShaderProgramPtr	m_pShaderProgram;
+		VertexBufferPtr		m_VBO;		
+		VertexArrayPtr		m_VAO;	
 	};
 
 } // namespace Engine 
